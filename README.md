@@ -1,4 +1,4 @@
-# Open-Baltimore
+# Open Baltimore
 
 This is a single page web application made using the AngularJs framework. The purpose of this application is to pull data regarding 
 the public libraries and museums of Baltimore, MD from the Open Baltimore site and allow the user to visualize, search and filter
