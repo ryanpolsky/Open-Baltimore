@@ -1,0 +1,26 @@
+
+<h2 class="title">Home</h2>
+<p>Search for a Library or a Museum - Enter at least one field </p>
+<!--The user can fill out any or all of the fields provided (name, district, sort key) to find/sort specific libraries/museums-->
+    <p style="font-size:15px;display:inline-block;padding-right: 5px;">Filter by District: </p>
+    <select style="display:inline-block" ng-model="selection" ng-init="selection = districtFilter[0]"ng-options="x for x in districtFilter"></select>  
+     <p style="font-size:13px;display:inline-block">Sort By: </p>
+     <select style="display:inline-block" ng-model="selection2" ng-init:"selection2 = 'A-Z'" ng-options="x for x in orderList"></select>
+     </br> <input type="text" data-ng-model="nameSearch" style="padding-right:10px;" ><button id='button' onclick="showResults()" style="padding-right:5px;">Search</button>
+
+<!--The results of the search are displayed in two side by side lists (one for libraries one for museums) sorted and filtered based on the user input-->
+
+<div id="results" height="400px" style="display:none;">
+<div  width="250px" style="float:left; padding-right:5px;"> 
+    <p>Libraries:</p>
+    <ul>  
+       <li data-ng-repeat="library in libraries | filter:{name:nameSearch, policedistrict:selection} | orderBy:'name':(selection2 == 'Z-A') " >{{library.name}}</li>
+    </ul>
+</div>
+<div width="200px" style="display:inline-block;position:relative;left: 35px;" > 
+    <p>Museums:</p>
+     <ul>   
+       <li data-ng-repeat="museum in museums | filter:{name:nameSearch, policedistrict:selection} | orderBy:'name':(selection2 == 'Z-A')">{{museum.name}} </li>
+    </ul>
+</div>
+</div>

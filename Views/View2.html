@@ -1,0 +1,24 @@
+<h2 class="title">Near Me</h2>
+<p>Enter your Baltimore zip code to see if there are any libraries or museums near you:</p>
+
+<!--Users are prompted to enter their Baltimore zip code to see if any libraries or museums are located near them-->
+    <input type="text" data-ng-model="zip" /> 
+    <button id='button' onclick="showResults2()" style="padding-right:5px;">Search</button>
+    </br>
+    
+<!--The results of the search are displayed in two side by side lists (one for libraries one for museums)-->
+<div id="results2" height="400px" style="display:none">
+<div  width="250px" style="float:left; padding-right:5px;"> 
+    <p>Libraries</p>
+    <ul>  
+       <li data-ng-repeat="library in libraries | filter:zip">{{library.name}}</li>
+    </ul>
+</div>
+<div width="200px" style="display:inline-block;position:relative;left: 35px;"> 
+    <p>Museums</p>
+     <ul>   
+       <li data-ng-repeat="museum in museums | filter:zip">{{museum.name}}</li>
+    </ul>
+</div>
+</div>
+
